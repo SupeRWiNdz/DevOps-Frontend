@@ -3,10 +3,12 @@ FROM node:18-alpine as build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install -g @angular/cli && \
+    npm install --legacy-peer-deps && \
+    chmod +x node_modules/.bin/*
 
 COPY . .
-RUN npx ng build --prod
+RUN ./node_modules/.bin/ng build --prod
 
 FROM nginx:alpine
 

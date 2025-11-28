@@ -1,0 +1,14 @@
+<div style="padding: 20px;">
+  <h1>Фронтэнд v2.0</h1>
+
+  <h3>Отправить данные:</h3>
+  <input type="text" #inputField placeholder="Введите текст">
+  <button (click)="sendData(inputField.value)">Отправить</button>
+
+  <hr>
+
+  <h3>Получить данные:</h3>
+  <button (click)="loadData()">Загрузить данные с сервера</button>
+  <br><br>
+  <textarea readonly rows="5" cols="50">{{ receivedData }}</textarea>
+</div>
